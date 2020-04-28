@@ -3,4 +3,4 @@
 
 2.sync_fifo ver2 in verilog and their testbench.
 
-2.async fifo ver1 in verilog and it's testbench.
+3.async fifo ver1 in verilog and it's testbench.
