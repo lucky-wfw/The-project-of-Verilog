@@ -14,6 +14,8 @@ module shake_hand_send(clk,rst_n,ack,din,dout,ready);
 	reg [1:0] state,next_state;
 	parameter idle=2'b00,send=2'b01,ack_active=2'b10,ack_check=2'b11;
 
+	reg [7:0] data_buf;
+
 	always @(posedge clk or negedge rst_n)
 		begin
 			if(~rst_n)
@@ -28,62 +30,44 @@ module shake_hand_send(clk,rst_n,ack,din,dout,ready);
 				end
 		end
 
-	
 	always @(posedge clk or negedge rst_n)
 		begin
-			if(~rst_n)
+			if(!rst_n)
 				begin
+					dout<=8'd0;
+					ready<=1'b0;
 					state<=idle;
-					next_state<=idle;
 				end
 			else
-				state<=next_state;
+				begin
+					case(state)
+						idle:begin
+							ready<=1'b0;
+							state<=send;
+							end
+						send:begin
+							ready<=1'b1;
+							state<=ack_active;
+							end
+						ack_active:begin
+							if(ack_d2==1'b1)
+								begin
+									dout<=din;
+									ready<=1'b0;
+									state<=ack_check;
+								end
+							else
+								state<=ack_active;
+							end
+						ack_check:begin
+							if(ack_d2==1'b0)
+								state<=send;
+							else
+								state<=ack_check;
+							end
+						default:state<=idle;
+					endcase
+				end
 		end
 
-	always @(state)
-		begin
-			case(state)
-				idle:begin
-					ready<=1'b0;
-					dout<=8'd0;
-					end
-				send:begin
-					ready<=1'b1;
-					dout<=din;
-					end
-				ack_active:begin
-					ready<=1'b0;
-					dout<=din;
-					end
-				ack_check:begin
-					ready<=1'b0;
-					dout<=8'd0;
-					end
-			endcase
-		end
-
-	always @(ack or din)
-		begin
-			case(state)
-				idle:begin
-					next_state<=send;
-					end
-				send:begin
-					next_state<=ack_active;
-					end
-				ack_active:begin
-					if(ack_d2==1'b1)
-						next_state<=ack_check;
-					else
-						next_state<=ack_active;
-					end
-				ack_check:begin
-					if(ack_d2==1'b0)
-						next_state<=send;
-					else
-						next_state<=ack_check;
-					end
-				default:next_state<=idle;
-			endcase
-		end
 endmodule
