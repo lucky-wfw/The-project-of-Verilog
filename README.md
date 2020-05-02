@@ -10,3 +10,5 @@
 5.The communication by the way of Shake_hand:send part
 
 6.The communication by the way of Shake_hand:receive part
+
+7.The top level of hand_shake consiting of 5&6's codes
