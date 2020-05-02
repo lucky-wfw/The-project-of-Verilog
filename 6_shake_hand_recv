@@ -12,7 +12,7 @@ module shake_hand_recv(clk,rst_n,ready,din,dout,ack);
 
 	reg ready_d1,ready_d2;
 
-	parameter idle=2'b00,active=2'b01,reset=2'b10;
+	parameter idle=2'b00,recv=2'b01,active=2'b10,reset=2'b11;
 
 	reg [1:0] state,next_state;
 
@@ -30,53 +30,48 @@ module shake_hand_recv(clk,rst_n,ready,din,dout,ack);
 				end
 		end
 
+
+
+
 	always @(posedge clk or negedge rst_n)
 		begin
 			if(!rst_n)
 				begin
+					dout<=8'd0;
+					ack<=1'b0;
 					state<=idle;
-					next_state<=idle;
 				end
 			else
-				state<=next_state;
-		end
-
-	always @(state)
-		begin
-			case(state)
-				idle:begin
-					dout<=8'd0;
-					ack<=1'b0;
-					end
-				active:begin
-					dout<=din;
-					ack<=1'b1;
-					end
-				reset:begin
-					dout<=8'd0;
-					ack<=1'b0;
-					end
-				default:;
-			endcase
-		end
-
-	always @(din or ready)
-		begin
-			case(state)
-				idle:next_state<=active;
-				active:begin
-					if(ready_d2==1'b1)
-						next_state<=reset;
-					else
-						next_state<=active;
-					end
-				reset:begin
-					if(ready_d2==1'b1)
-						next_state<=reset;
-					else
-						next_state<=active;
-					end
-				default:next_state<=idle;
-			endcase
+				begin
+					case(state)
+						idle:begin
+							ack<=1'b0;
+							state<=recv;
+							end
+						recv:begin
+							ack<=1'b1;
+							state<=active;
+							end
+						active:begin
+							if(ready_d2==1'b1)
+								begin
+									ack<=1'b0;
+									dout<=din;
+									state<=reset;
+								end
+							else
+								state<=active;
+							end
+						reset:begin
+							if(ready_d2==1'b0)
+								begin
+									state<=recv;
+								end
+							else
+								state<=reset;
+							end
+						default:state<=idle;
+					endcase
+				end
 		end
 endmodule
