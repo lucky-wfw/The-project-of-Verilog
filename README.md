@@ -8,3 +8,5 @@
 4.mod3
 
 5.The communication by the way of Shake_hand:send part
+
+6.The communication by the way of Shake_hand:receive part
