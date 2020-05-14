@@ -17,6 +17,8 @@
 
 9.  IIC communication module
 
-10. 8 bits adder based on two stage pipeline
+10. 8 bits adder based on two stages pipeline
+
+11. 8bits adder based on four states pipeline
 
 
