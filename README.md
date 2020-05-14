@@ -16,3 +16,7 @@
 8.  Random number generator
 
 9.  IIC communication module
+
+10. 8 bits adder based on two stage pipeline
+
+
