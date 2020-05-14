@@ -19,6 +19,6 @@
 
 10. 8 bits adder based on two stages pipeline
 
-11. 8bits adder based on four states pipeline
+11. 8 bits adder based on four states pipeline
 
 
