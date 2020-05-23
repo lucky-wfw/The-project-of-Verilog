@@ -23,7 +23,7 @@
 
 12. System verilog used to design testbench
 
-13 .RNG test by system verilog testbench
+13.RNG test by system verilog testbench
 
 14. ALU module and it's testbench of system verilog
 
