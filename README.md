@@ -29,3 +29,5 @@
 
 15. A memory working in stack 
 
+16. A simple module used to convert binary code to gray code
+
