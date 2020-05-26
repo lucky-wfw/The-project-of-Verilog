@@ -31,3 +31,5 @@
 
 16. A simple module used to convert binary code to gray code
 
+17. A special number finder in memory
+
