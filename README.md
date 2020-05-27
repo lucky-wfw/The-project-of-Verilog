@@ -33,3 +33,5 @@
 
 17. A special number finder in memory
 
+18. FSM of drink machines
+
