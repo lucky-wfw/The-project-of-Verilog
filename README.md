@@ -35,3 +35,7 @@
 
 18. FSM of drink machines
 
+19. DMUX used to data bits synchronization
+
+
+
