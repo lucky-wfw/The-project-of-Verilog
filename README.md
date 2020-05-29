@@ -37,5 +37,7 @@
 
 19. DMUX used to data bits synchronization
 
+20. A module used to extend the width of the pulse
+
 
 
