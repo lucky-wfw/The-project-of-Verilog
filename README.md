@@ -41,3 +41,6 @@
 
 21. A auto drink machine
 
+22. Div odd
+
+23. Sequency detector
