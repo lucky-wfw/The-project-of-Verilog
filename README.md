@@ -46,3 +46,5 @@
 23. Sequency detector
 
 24. Sync FIFO practice
+
+25. FIFO
