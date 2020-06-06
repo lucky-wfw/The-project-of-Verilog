@@ -48,3 +48,7 @@
 24. Sync FIFO practice
 
 25. FIFO
+
+26. Asynchronous Reset Synchronous Release
+
+
