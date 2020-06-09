@@ -53,4 +53,6 @@
 
 27. Generation a list of numbers
 
+28. Auto drink machine
+
 
