@@ -51,4 +51,6 @@
 
 26. Asynchronous Reset Synchronous Release
 
+27. Generation a list of numbers
+
 
