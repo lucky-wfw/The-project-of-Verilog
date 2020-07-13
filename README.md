@@ -63,4 +63,6 @@
 
 32. SEQ detector with FSM
 
+33. Mod3
+
 
