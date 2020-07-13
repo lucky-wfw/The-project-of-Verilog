@@ -61,4 +61,6 @@
 
 31. AXI handshake process
 
+32. SEQ detector with FSM
+
 
