@@ -68,3 +68,5 @@
 34. level to pluse
 
 35. fast to slow clock domain
+
+36&&37. DIV 3 with 2 methods
