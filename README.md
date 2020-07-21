@@ -70,3 +70,7 @@
 35. fast to slow clock domain
 
 36&&37. DIV 3 with 2 methods
+
+38. Clk div 5
+
+
