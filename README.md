@@ -76,3 +76,5 @@
 39. Clk div even
 
 40. fifo
+
+41. serial to para
