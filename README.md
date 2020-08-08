@@ -82,3 +82,9 @@
 42. clock change 
 
 43. async clocks change
+
+44. Edge det
+
+45. Cycle cnt
+
+
