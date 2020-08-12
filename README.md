@@ -87,4 +87,6 @@
 
 45. Cycle cnt
 
+46. Gray to bin
+
 
