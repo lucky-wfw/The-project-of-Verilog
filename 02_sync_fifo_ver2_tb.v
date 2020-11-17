@@ -1,5 +1,5 @@
-date:2020-4-28
-author:WangFW
+//date:2020-4-28
+//author:WangFW
 
 `timescale 10ns/1ns
 module sync_fifo_ver2_tb();
