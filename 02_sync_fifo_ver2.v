@@ -1,5 +1,5 @@
-date:2020-4-28
-author:WangFW
+//date:2020-4-28
+//author:WangFW
 
 module sync_fifo_ver2(clk,rst_n,wr,rd,din,dout,full,empty);
 	input clk,rst_n;
